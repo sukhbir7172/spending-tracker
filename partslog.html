@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trackex</title>
+  <link rel="stylesheet" href="partslog.css">
+</head>
+<body>
+    
+<h2>enter the amount</h2>
+<input type="text" id="value" >
+ 
+<div id="secondBox">
+<h2> pick a category</h2>
+<input list="categories" id="category" placeholder="select or type">
+  <datalist id="categories">
+    <option value="rent">
+    <option value="food">
+  <option value="transit">
+  </datalist>
+ <br>
+
+<button id ="punch">punch</button>
+</div>
+<div id="logs"></div>
+<div>
+  <h2>search</h2>
+  <input type="text" id="query"><button id="searchButton">search</button>
+</div>
+<div>
+  <h2>delete</h2>
+  <output for="value category" name="result" id="result"> </output>
+</div>
+<br>
+<div>
+  <input type="text" id="deletetxt">
+  <button id="deleteBtn">delete</button>
+  <br>
+  <input type="date" id="date" min="2026-01-01" max="2026-12-31" >
+</div>
+  <script src="partslog.js"> </script>
+</body>
+</html>
