@@ -6,8 +6,10 @@ let result =   document.getElementById("result")
 let deletetxt = document.getElementById("deletetxt")
 let deleteBtn = document.getElementById("deleteBtn")
 let date = document.getElementById("date")
-button.addEventListener("click",punch);
 
+let totalAmount = 0
+
+button.addEventListener("click",punch);
 
 function punch(){
 
@@ -18,16 +20,25 @@ function punch(){
     
     let amount = Number(input.value.trim());
     let cat = category.value; 
-    
+     totalAmount += amount
     if(isNaN(amount)){
         alert("please enter a valid number");
-        return;
+        return
     }
+        else if(totalAmount>1000){
+         alert('you have exceede the budget')
+         return
+        }
+        
+        
+    
+    
     
     let entry ={
         amount: amount,
          category: cat,
-         time: new Date().toISOString().split("T")[0]
+         time: new Date().toISOString().split("T")[0],
+         totalAmount: totalAmount
     }    
 console.log(entry)
     input.value = ""
