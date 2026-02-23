@@ -3,11 +3,13 @@
 <head>
   <title>Trackex</title>
   <link rel="stylesheet" href="partslog.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
     
 <h2>enter the amount</h2>
-<input type="text" id="value" >
+<input type="text" id="value" > 
  
 <div id="secondBox">
 <h2> pick a category</h2>
@@ -21,10 +23,15 @@
 
 <button id ="punch">punch</button>
 </div>
-<div id="logs"></div>
+
 <div>
   <h2>search</h2>
   <input type="text" id="query"><button id="searchButton">search</button>
+</div>
+
+<div id="graph">
+<canvas id="myChart"></canvas>
+<button id ="renderGraphBtn">renderGraph</button>
 </div>
 <div>
   <h2>delete</h2>

@@ -1,11 +1,15 @@
-let input = document.getElementById("value");
-let category = document.getElementById("category");
-let button = document.getElementById("punch");
-let query=   document.getElementById("query")
-let result =   document.getElementById("result")
-let deletetxt = document.getElementById("deletetxt")
-let deleteBtn = document.getElementById("deleteBtn")
-let date = document.getElementById("date")
+const input = document.getElementById("value");
+const category = document.getElementById("category");
+const button = document.getElementById("punch");
+const query=   document.getElementById("query");
+const result =   document.getElementById("result");
+const searchButton = document.getElementById("searchButton");
+const deleteBtn = document.getElementById("deleteBtn");
+const deletetxt = document.getElementById("deletetxt")
+const date = document.getElementById("date");
+const ctx = document.getElementById("myChart").getContext('2d');
+const renderGraphBtn = document.getElementById("renderGraphBtn")
+
 
 let totalAmount = 0
 
@@ -30,10 +34,7 @@ function punch(){
          return
         }
         
-        
-    
-    
-    
+
     let entry ={
         amount: amount,
          category: cat,
@@ -74,8 +75,36 @@ function search(){
         query.value = ""
 
     }
-    
 }
+
+renderGraphBtn.addEventListener("click",renderGraph)
+let chartInstance;
+ function renderGraph(){
+let data = JSON.parse(localStorage.getItem("expenses")||"[]")
+let totals = {}
+for(let e of data){
+    totals[e.category] = (totals[e.category]||0) + Number(e.amount)
+}
+let totalCategory =Object.keys(totals);
+let totalAmount = Object.values(totals) 
+if(chartInstance){
+    chartInstance.destroy()
+}
+chartInstance = new Chart(ctx,{
+    type : "line",
+    data : {
+        labels: totalCategory,
+        datasets:[{
+           label: "expenditure tracker",
+           data: totalAmount,
+            borderColor: 'rgb(75, 192, 192)',
+            fill: false
+            
+     } ]
+    }
+ })
+ }   
+    
 
 deleteBtn.addEventListener("click",deleteEntry);
 
@@ -89,6 +118,5 @@ const newData = data.filter(items=>!(items.time==selectDate&&text==items.categor
     
 localStorage.setItem("expenses",JSON.stringify(newData))
 }
-
 
 
