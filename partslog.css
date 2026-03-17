@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+#amountBox{
+    /*background-color: rgb(245, 239, 240);*/
+    max-width:fit-content;
+}
+
+#value,#category,#search,#query,#deletetxt,#emailaddress{
+ border-radius: 100px;
+}
 #punch{
     background-color: rgb(190, 160, 160);
 }
@@ -15,4 +23,9 @@
     margin-top: -90px;
    margin-left: 350px;
     
+}
+
+#emailBox{
+    margin-top: 200px;
+
 }

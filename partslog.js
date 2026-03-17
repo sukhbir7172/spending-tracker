@@ -9,8 +9,8 @@ const deletetxt = document.getElementById("deletetxt")
 const date = document.getElementById("date");
 const ctx = document.getElementById("myChart").getContext('2d');
 const renderGraphBtn = document.getElementById("renderGraphBtn")
-
-
+const shareBtn = document.getElementById("shareBtn")
+const emailaddress = document.getElementById("emailaddress")
 let totalAmount = 0
 
 button.addEventListener("click",punch);
@@ -118,5 +118,21 @@ const newData = data.filter(items=>!(items.time==selectDate&&text==items.categor
     
 localStorage.setItem("expenses",JSON.stringify(newData))
 }
+
+shareBtn.addEventListener("click",share)
+
+function share(){
+    let data = JSON.parse(localStorage.getItem("expenses"||"[]"));
+    let emailInput = emailaddress.value.trim();
+    
+    if(!emailInput){
+        alert("please enter an valid address")
+        return
+    }
+   let emailSubject = encodeURI("my expenses")
+   let emailBody = encodeURI("here is my expenses:"+JSON.stringify(data,null,2))
+
+   window.location.href = `mailto:${emailInput}?subject=${emailSubject}&body=${emailBody}`
+} 
 
 
