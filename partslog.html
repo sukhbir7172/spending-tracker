@@ -6,13 +6,17 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
+
 <body>
+  <div id="headBox">
+  <h1>finance tracker</h1>
+  <p></p> Track and Visualize your Expenses</p>
+
+  </div>
  <div id="amountBox">   
 <h2>enter the amount</h2>
 <input type="text" id="value" > 
- </div>
-
-<div id="secondBox">
+<br>
 <h2> pick a category</h2>
 <input list="categories" id="category" placeholder="select or type">
   <datalist id="categories">
@@ -23,23 +27,23 @@
  <br>
 
 <button id ="punch">punch</button>
-</div>
+ </div>
 
-<div>
+<div id="secondBox">
   <h2>search</h2>
   <input type="text" id="query"><button id="searchButton">search</button>
+  <br>
+   <output for="value category" name="result" id="result"> </output>
 </div>
 
-<div id="graph">
+<div id="graphBox">
 <canvas id="myChart"></canvas>
 <button id ="renderGraphBtn">renderGraph</button>
 </div>
-<div>
+<div id="deleteBox">
   <h2>delete</h2>
-  <output for="value category" name="result" id="result"> </output>
-</div>
+ 
 <br>
-<div>
   <input type="text" id="deletetxt">
   <button id="deleteBtn">delete</button>
   <br>

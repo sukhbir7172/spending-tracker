@@ -46,9 +46,17 @@ console.log(entry)
     category.value = ""
      let data = JSON.parse(localStorage.getItem("expenses") || "[]");
     data.push(entry);
-   
-localStorage.setItem("expenses",JSON.stringify(data))
-}  
+   localStorage.setItem("expenses",JSON.stringify(data))
+    
+    
+    const webApp = "https://script.google.com/macros/s/AKfycbwf3-K7VogwW5EdPCwI1JDYnhpBvVX3rqHu8_JlchKA4vq0iSXV0VfsACON9uHwcoD4CQ/exec";
+   fetch(webApp, {
+    method:'POST',
+    headers:{'Content-Type': 'application/json'},
+    body: JSON.stringify(entry),
+    mode:'no-cors'
+})
+}
 
 searchButton.addEventListener("click",search);
 
